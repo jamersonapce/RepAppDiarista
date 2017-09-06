@@ -1,7 +1,9 @@
-package com.appdiarista.appdiarista;
+package com.appdiarista.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.appdiarista.appdiarista.R;
 
 public class LoginActivity extends AppCompatActivity {
     @Override
