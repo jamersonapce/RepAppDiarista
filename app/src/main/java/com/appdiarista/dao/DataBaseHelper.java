@@ -17,18 +17,24 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.i("msg", "vai executar sql");
-        db. execSQL(DataBaseSql.CTTIPOUSUARIO);
-        db. execSQL(DataBaseSql.CTUSUARIO);
-        //execSqlsInit(db);
+        db. execSQL(DataBaseSql.CT_TIPOUSUARIO);
+        db. execSQL(DataBaseSql.CT_USUARIO);
+        db. execSQL(DataBaseSql.CT_CONTRATANTE);
+        db. execSQL(DataBaseSql.CT_DIARISTA);
+        db. execSQL(DataBaseSql.CT_CONTRATO);
+        db. execSQL(DataBaseSql.CT_DIARIA);
+        db. execSQL(DataBaseSql.CT_CONTRATO_DIARIA);
+
+        execSqlsInit(db);
         Log.i("msg", "executou sqls");
 
     }
 
-//    public void execSqlsInit(SQLiteDatabase db) {
-//        db.execSQL("insert into tipoUsuario(id,descricao) values (1,'DIARISTA')");
-//        db.execSQL("insert into tipoUsuario(id,descricao) values (2,'CONTRATANTE')");
-//        db.execSQL("insert into usuario (login,senha,tipoUsuario_id) values('fredericond@hotmail.com','1234',2)");
-//    }
+    public void execSqlsInit(SQLiteDatabase db) {
+        db.execSQL("insert into tipoUsuario(id,descricao) values (1,'DIARISTA')");
+        db.execSQL("insert into tipoUsuario(id,descricao) values (2,'CONTRATANTE')");
+        db.execSQL("insert into usuario (login,senha,tipoUsuario_id) values('fredericond@hotmail.com','1234',2)");
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -36,12 +42,4 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public SQLiteDatabase getDb(){
-        Log.i("msg", "chamou getdb");
-        if(db==null){
-            Log.i("msg", "vai conectar no banco");
-            db = this.getReadableDatabase();
-        }
-        return db;
-    }
 }
