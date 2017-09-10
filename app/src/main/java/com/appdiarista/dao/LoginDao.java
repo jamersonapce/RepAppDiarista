@@ -29,7 +29,7 @@ public class LoginDao {
         String[] parametros = {login, senha};
         Cursor c = db.rawQuery("select login, tipoUsuario_id from usuario where login=? and senha=?", parametros);
         Usuario usuario = null;
-        while(c.moveToFirst()){
+        while(c.moveToNext()){
             usuario = UsuarioUtil.criarUsuarioDb(c);
         }
         return usuario;
