@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.appdiarista.activity.EscolhaCadastroActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="69dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="69dp"
+        android:id="@+id/relativeLayout"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <Button
+            android:id="@+id/btCadDiarista"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Cadastro de Diarista"
+            android:layout_marginTop="100px"
+            android:padding="1px"
+            android:textColor="@color/branco"
+            android:background="@drawable/screen_border"
+            android:onClick="irParaCadDiarista"/>
+        <Button
+            android:id="@+id/btCadContratante"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Cadastro de Contratante"
+            android:layout_marginTop="100px"
+            android:padding="1px"
+            android:textColor="@color/branco"
+            android:background="@drawable/screen_border"
+            android:onClick="irParaCadContratante"/>
+     </LinearLayout>
+</RelativeLayout>

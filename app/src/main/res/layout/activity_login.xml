@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40px"
             android:linksClickable="true"
-            android:onClick="irCadastrar"
+            android:onClick="irParaEscolhaCadastro"
             android:text="Cadastrar-se"
             android:textColor="@color/AzulLink"
             android:textSize="18sp"

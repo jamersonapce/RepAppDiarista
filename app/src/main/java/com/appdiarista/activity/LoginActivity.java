@@ -1,5 +1,6 @@
 package com.appdiarista.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -40,12 +41,14 @@ public class LoginActivity extends AppCompatActivity {
         Usuario usuario = loginDao.logar(login, senha);
         Log.i("usuario","como ta: "+usuario);
         if(usuario != null){
-            Toast.makeText(this, "Login Realizado com sucesso!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Login Correto!", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this, "Login ou senha incorretos!", Toast.LENGTH_SHORT).show();
         }
     }
-    public void irCadastrar(View v){
-        Toast.makeText(this, "Foi pro cadastrar", Toast.LENGTH_SHORT).show();
+
+    public void irParaEscolhaCadastro(View v) {
+        Intent it = new Intent(this, EscolhaCadastroActivity.class);
+        startActivity(it);
     }
 }
