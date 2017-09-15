@@ -123,7 +123,7 @@
             android:text="Endereço" />
 
         <TextView
-            android:id="@+id/evEndereco"
+            android:id="@+id/tvEnderecoresposta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />
@@ -134,6 +134,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/screen_border"
             android:textColor="@color/branco"
+            android:onClick="buscarEndereco"
             app:srcCompat="@android:drawable/ic_menu_mylocation" />
         <TextView
             android:id="@+id/textView9"
