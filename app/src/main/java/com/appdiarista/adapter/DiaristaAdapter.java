@@ -46,7 +46,7 @@ public class DiaristaAdapter extends BaseAdapter {
         Diarista diarista = diaristas.get(position);
         View v = LayoutInflater.from(ctx).inflate(R.layout.list_diaristas,parent,false);
         ImageView iv = (ImageView) v.findViewById(R.id.imgLogo);
-        iv.setImageResource(R.drawable.common_signin_btn_icon_dark);
+        iv.setImageResource(R.drawable.icon_user_q);
         TextView tvNome = (TextView) v.findViewById(R.id.txtNome);
         tvNome.setText(diarista.getNome());
         TextView tvSobreMim = (TextView) v.findViewById(R.id.txtSobreMim);
