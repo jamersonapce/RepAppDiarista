@@ -46,6 +46,19 @@ public class Diarista extends Usuario{
         this.latitude = latitude;
         this.longitude = longitude;
     }
+    public Diarista(int id, String nome, double valor){
+        this.id = id;
+        this.nome = nome;
+        this.valorDiaria = valor;
+    }
+
+    public Diarista(int id, String nome, String sobreMim, double valor) {
+        this.id = id;
+        this.nome = nome;
+        this.sobreMim = sobreMim;
+        this.valorDiaria = valor;
+    }
+
 
     public Integer getId() {
         return id;

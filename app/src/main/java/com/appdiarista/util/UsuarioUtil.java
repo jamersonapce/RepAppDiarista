@@ -12,7 +12,7 @@ public class UsuarioUtil {
         Usuario model = new Usuario(
                 cursor.getString(cursor.getColumnIndex("login")),
                 null,
-                new TipoUsuario(cursor.getString(cursor.getColumnIndex("tipoUsuario_id")))
+                new TipoUsuario(cursor.getInt(cursor.getColumnIndex("tipoUsuario_id")),null)
         );
         return model;
     }
