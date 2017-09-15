@@ -1,44 +1,46 @@
 package com.appdiarista.model;
 
-import java.math.BigDecimal;
-import java.util.Date;
 
 public class Diarista extends Usuario{
     private Integer id;
     private String nome;
     private String telefone;
-    private Date dataNascimento;
+    private String dataNascimento;
     private String cpf;
     private String email;
     private String sobreMim;
-    private BigDecimal valorDiaria;
+    private double valorDiaria;
     private Double latitude;
     private Double longitude;
 
     public Diarista() {
     }
 
-    public Diarista(Integer id, String nome, String telefone, Date dataNascimento, String cpf, String email,
-                    String sobreMim, BigDecimal valorDiaria, Double latitude, Double longitude) {
+    public Diarista(Integer id, String nome, String telefone, String dataNascimento, String cpf, String email, String senha,
+                    String sobreMim, double valorDiaria, Double latitude, Double longitude) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
         this.email = email;
+        super.setLogin(email);
+        super.setSenha(senha);
         this.sobreMim = sobreMim;
         this.valorDiaria = valorDiaria;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public Diarista(String nome, String telefone, Date dataNascimento, String cpf, String email, String sobreMim,
-                    BigDecimal valorDiaria, Double latitude, Double longitude) {
+    public Diarista(String nome, String telefone, String dataNascimento, String cpf, String email, String senha, String sobreMim,
+                    double valorDiaria, Double latitude, Double longitude) {
         this.nome = nome;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
         this.email = email;
+        super.setLogin(email);
+        super.setSenha(senha);
         this.sobreMim = sobreMim;
         this.valorDiaria = valorDiaria;
         this.latitude = latitude;
@@ -69,11 +71,11 @@ public class Diarista extends Usuario{
         this.telefone = telefone;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -101,11 +103,11 @@ public class Diarista extends Usuario{
         this.sobreMim = sobreMim;
     }
 
-    public BigDecimal getValorDiaria() {
+    public double getValorDiaria() {
         return valorDiaria;
     }
 
-    public void setValorDiaria(BigDecimal valorDiaria) {
+    public void setValorDiaria(double valorDiaria) {
         this.valorDiaria = valorDiaria;
     }
 
