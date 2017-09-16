@@ -40,8 +40,11 @@
         <activity
             android:name="com.appdiarista.activity.CadDiaristaActivity"
             android:label="Diarista"
-            android:parentActivityName="com.appdiarista.activity.EscolhaCadastroActivity"></activity>
-        <activity android:name="com.appdiarista.activity.ListDiaristasActivity"></activity>
+            android:parentActivityName="com.appdiarista.activity.EscolhaCadastroActivity" />
+        <activity
+            android:name="com.appdiarista.activity.ListDiaristasActivity"
+            android:label="Diaristas Disponíveis"></activity>
+        <activity android:name="com.appdiarista.activity.PerfilDiaristaActivity"></activity>
     </application>
 
 </manifest>
