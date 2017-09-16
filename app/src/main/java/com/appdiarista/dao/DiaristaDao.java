@@ -53,4 +53,20 @@ public class DiaristaDao {
         }
         return diaristas;
     }
+
+    public Diarista buscaDiarista(int id){
+        Diarista diarista = null;
+        String sql = "select id,nome,sobreMim, valorDiaria, latitude, longitude from diarista where id=?";
+        Cursor cursor = db.getReadableDatabase().rawQuery(sql, new String[]{String.valueOf(id)});
+        while(cursor.moveToNext()){
+            int idx = cursor.getInt(cursor.getColumnIndex("id"));
+            String nome = cursor.getString(cursor.getColumnIndex("nome"));
+            String sobreMim = cursor.getString(cursor.getColumnIndex("sobreMim"));
+            double valor = cursor.getDouble(cursor.getColumnIndex("valorDiaria"));
+            double latitude = cursor.getDouble(cursor.getColumnIndex("latitude"));
+            double longitude = cursor.getDouble(cursor.getColumnIndex("longitude"));
+            diarista = new Diarista(idx,nome,sobreMim, valor, latitude, longitude);
+        }
+        return diarista;
+    }
 }

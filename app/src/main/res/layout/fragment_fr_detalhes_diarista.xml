@@ -5,10 +5,57 @@
     tools:context="com.appdiarista.activity.FrDetalhesDiaristaActivity">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Detalhes aqui" />
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Sobre Mim"
+            android:textColor="@color/preto"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tvSobreMim"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:text="texto aqui"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Endereço"
+            android:textColor="@color/preto"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tvDetalhes_endereco"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:text="texto aqui"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Valor da Diária"
+            android:textColor="@color/preto"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tvDetalhes_valor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/vermelho"
+            android:textSize="22sp"
+            android:text="texto aqui"
+            />
+    </LinearLayout>
 </FrameLayout>

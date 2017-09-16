@@ -8,23 +8,34 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.appdiarista.appdiarista.R;
+import com.appdiarista.dao.DiaristaDao;
+import com.appdiarista.model.Diarista;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PerfilDiaristaActivity extends AppCompatActivity {
-
+    private String sobreMim;
+    private String endereço;
+    private String valor;
+    private Double latitude;
+    private Double longitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_diarista);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        long idDiarista = extras.getInt("idDiarista");
-        Log.i("msg", "id diarista: "+idDiarista);
+        int idDiarista = extras.getInt("idDiarista");
+        Diarista diarista = new DiaristaDao(this).buscaDiarista(idDiarista);
+        if(diarista != null){
+            sobreMim = diarista.getSobreMim();
+            valor = String.valueOf(diarista.getValorDiaria()).replace(",","").replace(".",",");
+            latitude = diarista.getLatitude();
+            longitude = diarista.getLongitude();
+        }
         ViewPager vp = (ViewPager) findViewById(R.id.vpPerfilDiarista);
         vp.setAdapter(new MyAdapter(getSupportFragmentManager()));
 
@@ -38,7 +49,15 @@ public class PerfilDiaristaActivity extends AppCompatActivity {
         public MyAdapter(FragmentManager fm) {
             super(fm);
             fragments = new ArrayList<Fragment>();
-            fragments.add(new FrDetalhesDiaristaActivity());
+            Bundle b = new Bundle();
+            b.putString("sobreMim",sobreMim);
+            b.putString("valor",valor);
+            b.putString("latitude",String.valueOf(latitude));
+            b.putString("longitude",String.valueOf(longitude));
+            b.putString("valor",valor);
+            FrDetalhesDiaristaActivity frDetalhes = new FrDetalhesDiaristaActivity();
+            frDetalhes.setArguments(b);
+            fragments.add(frDetalhes);
             fragments.add(new FrAgendaDiaristaActivity());
 
             titulos = new ArrayList<String>();
