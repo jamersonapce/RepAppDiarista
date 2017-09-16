@@ -1,8 +1,10 @@
 package com.appdiarista.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.appdiarista.adapter.DiaristaAdapter;
@@ -18,13 +20,21 @@ public class ListDiaristasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_diaristas);
-        Log.i("msg","entrou na activity lista dia");
         ListView lv = (ListView) findViewById(R.id.listDiaristasCadastradas);
-        Log.i("msg","depois de findViewById listDiaristasCadastradas");
         List<Diarista> diaristas = new DiaristaDao(this).listAll();
         DiaristaAdapter adapter = new DiaristaAdapter(this, diaristas);
-        Log.i("msg","depois de chamar adapter diarista");
         lv.setAdapter(adapter);
-
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Intent intent = new Intent(ListDiaristasActivity.this, PerfilDiaristaActivity.class);
+                Bundle bd = new Bundle();
+                Long idDr = id;
+                bd.putInt("idDiarista", Integer.valueOf(idDr.toString()));
+                intent.putExtras(bd);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -1,5 +1,6 @@
 package com.appdiarista.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.appdiarista.appdiarista.R;
 
@@ -19,7 +21,10 @@ public class PerfilDiaristaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_diarista);
-
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        long idDiarista = extras.getInt("idDiarista");
+        Log.i("msg", "id diarista: "+idDiarista);
         ViewPager vp = (ViewPager) findViewById(R.id.vpPerfilDiarista);
         vp.setAdapter(new MyAdapter(getSupportFragmentManager()));
 
@@ -49,6 +54,11 @@ public class PerfilDiaristaActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             return fragments.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titulos.get(position);
         }
     }
 }

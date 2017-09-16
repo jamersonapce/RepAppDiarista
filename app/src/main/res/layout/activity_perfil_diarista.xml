@@ -12,8 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/vermelho"
-        app:tabTextColor="@color/branco"
-        app:tabSelectedTextColor="@color/Cinza">
+        app:tabTextColor="@color/Cinza"
+        app:tabSelectedTextColor="@color/branco">
+        
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DetalhesV" />
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AgendaV"/>
 
     </android.support.design.widget.TabLayout>
 
