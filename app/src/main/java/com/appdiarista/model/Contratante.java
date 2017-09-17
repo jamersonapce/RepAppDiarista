@@ -1,13 +1,12 @@
 package com.appdiarista.model;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class Contratante extends Usuario{
     private Integer id;
     private String nome;
     private String telefone;
-    private Date dataNascimento;
+    private String dataNascimento;
     private String cpf;
     private String email;
     private String sobreMim;
@@ -17,7 +16,27 @@ public class Contratante extends Usuario{
     public Contratante() {
     }
 
-    public Contratante(Integer id, String nome, String telefone, Date dataNascimento, String cpf, String email,
+    public Contratante(int id, String nome, String telefone, String sobreMim) {
+        this.id = id;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.sobreMim = sobreMim;
+    }
+    public Contratante(int id, String nome, String telefone, String sobreMim, double latitude, double longitude) {
+        this.id = id;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.sobreMim = sobreMim;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+
+    public Contratante(int id) {
+        this.id = id;
+    }
+
+    public Contratante(Integer id, String nome, String telefone, String dataNascimento, String cpf, String email,
                        String sobreMim, BigDecimal valorDiaria, Double latitude, Double longitude) {
         this.id = id;
         this.nome = nome;
@@ -30,7 +49,7 @@ public class Contratante extends Usuario{
         this.longitude = longitude;
     }
 
-    public Contratante(String nome, String telefone, Date dataNascimento, String cpf, String email, String sobreMim,
+    public Contratante(String nome, String telefone, String dataNascimento, String cpf, String email, String sobreMim,
                         Double latitude, Double longitude) {
         this.nome = nome;
         this.telefone = telefone;
@@ -40,6 +59,35 @@ public class Contratante extends Usuario{
         this.sobreMim = sobreMim;
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    public Contratante(String nome, String telefone, String dataNascimento, String cpf, String email, String senha, String sobreMim,
+                       Double latitude, Double longitude) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.email = email;
+        super.setLogin(email);
+        super.setSenha(senha);
+        this.sobreMim = sobreMim;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Contratante(String nome, String telefone, String dataNascimento, String cpf, String email, String senha, String sobreMim, TipoUsuario tipo,
+                       Double latitude, Double longitude) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.email = email;
+        super.setLogin(email);
+        super.setSenha(senha);
+        this.sobreMim = sobreMim;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        setTipoUsuario(tipo);
     }
 
     public Integer getId() {
@@ -66,11 +114,11 @@ public class Contratante extends Usuario{
         this.telefone = telefone;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

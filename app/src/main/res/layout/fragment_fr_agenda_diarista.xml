@@ -22,10 +22,22 @@
             fab:fab_colorNormal="@color/vermelho"
             fab:fab_colorPressed="@color/colorAccent"
         />
-    <TextView
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total: "
-        android:textSize="18dp"
-        android:textColor="@color/preto"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvValorTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="32dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="22dp"
+            android:textColor="@color/preto"
+            android:text="Total: R$" />
+    </RelativeLayout>
+
 </FrameLayout>

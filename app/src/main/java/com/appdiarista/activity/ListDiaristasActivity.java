@@ -28,10 +28,12 @@ public class ListDiaristasActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
+                String email = getIntent().getExtras().getString("login");
                 Intent intent = new Intent(ListDiaristasActivity.this, PerfilDiaristaActivity.class);
                 Bundle bd = new Bundle();
                 Long idDr = id;
                 bd.putInt("idDiarista", Integer.valueOf(idDr.toString()));
+                bd.putString("email", email);
                 intent.putExtras(bd);
                 startActivity(intent);
             }

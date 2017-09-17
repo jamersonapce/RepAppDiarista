@@ -1,6 +1,5 @@
 package com.appdiarista.model;
 
-import java.util.Date;
 
 /**
  * Created by FR£D on 06/09/2017.
@@ -8,15 +7,18 @@ import java.util.Date;
 
 public class Contrato {
     private Integer id;
-    private Date dataSolicitacao;
-    private Date dataAceito;
+    private String dataSolicitacao;
+    private String dataAceito;
     private Diarista diarista;
     private Contratante contratante;
 
     public Contrato() {
     }
+    public Contrato(int id) {
+        this.id = id;
+    }
 
-    public Contrato(Date dataSolicitacao, Date dataAceito, Diarista diarista, Contratante contratante) {
+    public Contrato(String dataSolicitacao, String dataAceito, Diarista diarista, Contratante contratante) {
         this.dataSolicitacao = dataSolicitacao;
         this.dataAceito = dataAceito;
         this.diarista = diarista;
@@ -31,19 +33,19 @@ public class Contrato {
         this.id = id;
     }
 
-    public Date getDataSolicitacao() {
+    public String getDataSolicitacao() {
         return dataSolicitacao;
     }
 
-    public void setDataSolicitacao(Date dataSolicitacao) {
+    public void setDataSolicitacao(String dataSolicitacao) {
         this.dataSolicitacao = dataSolicitacao;
     }
 
-    public Date getDataAceito() {
+    public String getDataAceito() {
         return dataAceito;
     }
 
-    public void setDataAceito(Date dataAceito) {
+    public void setDataAceito(String dataAceito) {
         this.dataAceito = dataAceito;
     }
 

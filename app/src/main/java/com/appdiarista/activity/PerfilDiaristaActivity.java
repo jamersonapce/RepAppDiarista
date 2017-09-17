@@ -8,8 +8,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.appdiarista.appdiarista.R;
+import com.appdiarista.dao.ContratanteDao;
 import com.appdiarista.dao.DiaristaDao;
 import com.appdiarista.model.Diarista;
 
@@ -22,6 +24,8 @@ public class PerfilDiaristaActivity extends AppCompatActivity {
     private String valor;
     private Double latitude;
     private Double longitude;
+    Diarista diarista;
+    int idContratante;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +33,10 @@ public class PerfilDiaristaActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         int idDiarista = extras.getInt("idDiarista");
-        Diarista diarista = new DiaristaDao(this).buscaDiarista(idDiarista);
+        String email = extras.getString("email");
+        Log.i("msg", "email perfil: "+email);
+        idContratante = new ContratanteDao(this).buscaContratante(email);
+        diarista = new DiaristaDao(this).buscaDiarista(idDiarista);
         if(diarista != null){
             sobreMim = diarista.getSobreMim();
             valor = String.valueOf(diarista.getValorDiaria()).replace(",","").replace(".",",");
@@ -58,7 +65,13 @@ public class PerfilDiaristaActivity extends AppCompatActivity {
             FrDetalhesDiaristaActivity frDetalhes = new FrDetalhesDiaristaActivity();
             frDetalhes.setArguments(b);
             fragments.add(frDetalhes);
-            fragments.add(new FrAgendaDiaristaActivity());
+            FrAgendaDiaristaActivity frAgendaDiaristaActivity = new FrAgendaDiaristaActivity();
+            Bundle b2 = new Bundle();
+            b2.putDouble("valor",diarista.getValorDiaria());
+            b2.putInt("idContratante",idContratante);
+            b2.putInt("idDiarista",diarista.getId());
+            frAgendaDiaristaActivity.setArguments(b2);
+            fragments.add(frAgendaDiaristaActivity);
 
             titulos = new ArrayList<String>();
             titulos.add("Detalhes");

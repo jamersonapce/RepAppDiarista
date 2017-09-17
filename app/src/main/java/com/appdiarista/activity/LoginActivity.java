@@ -42,10 +42,17 @@ public class LoginActivity extends AppCompatActivity {
         Log.i("usuario","como ta: "+usuario);
         if(usuario != null){
             if(usuario.getTipoUsuario().getId() == 2){
+                Bundle bundle = new Bundle();
+                bundle.putString("login",login);
                 Intent it = new Intent(this, ListDiaristasActivity.class);
+                it.putExtras(bundle);
                 startActivity(it);
             }else {
-                Toast.makeText(this, "Login Correto!", Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(this, ListaContratanteActivity.class);
+                Bundle b = new Bundle();
+                b.putString("loginDiarista",login);
+                it.putExtras(b);
+                startActivity(it);
             }
         }else{
             Toast.makeText(this, "Login ou senha incorretos!", Toast.LENGTH_SHORT).show();

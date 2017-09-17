@@ -15,7 +15,9 @@ public class Diarista extends Usuario{
 
     public Diarista() {
     }
-
+    public Diarista(int id) {
+        this.id = id;
+    }
     public Diarista(Integer id, String nome, String telefone, String dataNascimento, String cpf, String email, String senha,
                     String sobreMim, double valorDiaria, Double latitude, Double longitude) {
         this.id = id;
