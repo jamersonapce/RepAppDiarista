@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.appdiarista.model.Contrato;
 import com.appdiarista.model.Diarista;
+import com.appdiarista.util.DataUtil;
 
 
 public class ContratoDao {
@@ -42,5 +43,23 @@ public class ContratoDao {
             idx = cursor.getInt(cursor.getColumnIndex("id"));
         }
         return idx;
+    }
+
+    public boolean ehContratoAceito(int idDiarista,int idContratante){
+        Diarista diarista = null;
+        String sql = "select id from contrato where diarista_id=? and contratante_id=? and not dataAceito is null";
+        Cursor cursor = db.getReadableDatabase().rawQuery(sql, new String[]{String.valueOf(idDiarista),String.valueOf(idContratante)});
+        int idx = 0;
+        while(cursor.moveToNext()){
+            idx = cursor.getInt(cursor.getColumnIndex("id"));
+        }
+        return idx > 0;
+    }
+
+    public void aceitaContrato(String idContratante, String idDiarista){
+        String[]args = new String[]{idContratante,idDiarista};
+        ContentValues values = new ContentValues();
+        values.put("dataAceito", DataUtil.dataHoje());
+        db.getWritableDatabase().update("contrato",values,"contratante_id=? and diarista_id=?",args);
     }
 }

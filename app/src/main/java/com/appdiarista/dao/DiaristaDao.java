@@ -69,4 +69,15 @@ public class DiaristaDao {
         }
         return diarista;
     }
+
+    public Diarista buscaDiarista(String login){
+        Diarista diarista = null;
+        String sql = "select id from diarista where email=?";
+        Cursor cursor = db.getReadableDatabase().rawQuery(sql, new String[]{login});
+        while(cursor.moveToNext()){
+            int idx = cursor.getInt(cursor.getColumnIndex("id"));
+            diarista = new Diarista(idx);
+        }
+        return diarista;
+    }
 }

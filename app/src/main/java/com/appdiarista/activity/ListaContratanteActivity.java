@@ -21,7 +21,7 @@ public class ListaContratanteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_contratante);
         ListView lv = (ListView) findViewById(R.id.listaContratantesCadastrados);
-        String loginDiarista = getIntent().getExtras().getString("loginDiarista");
+        final String loginDiarista = getIntent().getExtras().getString("loginDiarista");
         List<Contratante> contratantes = new ContratanteDao(this).solicitantes(loginDiarista);
         ContratanteAdapter adapter = new ContratanteAdapter(this,contratantes);
         lv.setAdapter(adapter);
@@ -30,10 +30,11 @@ public class ListaContratanteActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ListaContratanteActivity.this, PerfilDiaristaActivity.class);
+                Intent intent = new Intent(ListaContratanteActivity.this, SolicitacaoDetalheActivity.class);
                 Bundle bd = new Bundle();
                 Long idDr = id;
                 bd.putInt("idContratante", Integer.valueOf(idDr.toString()));
+                bd.putString("loginDiarista", loginDiarista);
                 intent.putExtras(bd);
                 startActivity(intent);
             }

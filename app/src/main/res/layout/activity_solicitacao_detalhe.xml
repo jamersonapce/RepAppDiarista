@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:text="Contratante"
+        android:textColor="@color/preto"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvNome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:text="texto aqui"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:text="Sobre Mim"
+        android:textColor="@color/preto"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvSobreMim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:text="texto aqui"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:text="Endereço"
+        android:textColor="@color/preto"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvEnderecoresposta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/btAceitarSol"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="100px"
+        android:background="@drawable/screen_border"
+        android:onClick="aceitar"
+        android:padding="1px"
+        android:text="Aceitar"
+        android:textColor="@color/branco" />
+</LinearLayout>
