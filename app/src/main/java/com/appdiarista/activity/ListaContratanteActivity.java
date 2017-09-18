@@ -3,6 +3,8 @@ package com.appdiarista.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -40,5 +42,24 @@ public class ListaContratanteActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        try
+        {
+            MenuItem menuFormatar = menu.add(0, 0, 0, "Sair");
+        }
+        catch (Exception e) {
+
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent it = new Intent(this,LoginActivity.class);
+        startActivity(it);
+        return true;
     }
 }

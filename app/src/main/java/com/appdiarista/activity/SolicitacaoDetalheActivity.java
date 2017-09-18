@@ -3,6 +3,8 @@ package com.appdiarista.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -57,5 +59,24 @@ public class SolicitacaoDetalheActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
         Toast.makeText(this,"Solicitação de diária aceita com sucesso",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        try
+        {
+            MenuItem menuFormatar = menu.add(0, 0, 0, "Sair");
+        }
+        catch (Exception e) {
+
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent it = new Intent(this,LoginActivity.class);
+        startActivity(it);
+        return true;
     }
 }

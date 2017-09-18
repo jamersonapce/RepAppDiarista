@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.appdiarista.appdiarista.R;
 import com.appdiarista.dao.ContratanteDao;
@@ -92,5 +94,24 @@ public class PerfilDiaristaActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return titulos.get(position);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        try
+        {
+            MenuItem menuFormatar = menu.add(0, 0, 0, "Sair");
+        }
+        catch (Exception e) {
+
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent it = new Intent(this,LoginActivity.class);
+        startActivity(it);
+        return true;
     }
 }

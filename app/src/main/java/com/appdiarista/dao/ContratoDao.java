@@ -24,7 +24,6 @@ public class ContratoDao {
         Log.i("msg", "id contratante-contrato: "+contrato.getContratante().getId());
             ContentValues valuesUs = new ContentValues();
             valuesUs.put("dataSolicitacao", contrato.getDataSolicitacao());
-            valuesUs.put("dataAceito", contrato.getDataAceito());
             valuesUs.put("diarista_id", contrato.getDiarista().getId());
             valuesUs.put("contratante_id", contrato.getContratante().getId());
             long nr = db.getWritableDatabase().insert("contrato", null, valuesUs);
